@@ -1,5 +1,13 @@
 [
   {
+    "id": "2",
+    "title": "Yamunajini Stuti",
+    "artist": "Dr. Dipali Bhatt, Foram Maheta",
+    "category": "Stuti",
+    "subtitle": "Shrinathji Temple",
+    "file": "yamunajini_stuti.json"
+  },
+  {
     "id": "3",
     "title": "Yamunashtak",
     "artist": "Chorus",
