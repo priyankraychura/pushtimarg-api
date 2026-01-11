@@ -4,16 +4,16 @@
     "index": 1,
     "group": "252",
     "name": "Govindswami",
-    "bio": "",
+    "bio": "Gusaiji's musically gifted devotee",
     "prasangs": [
       {
         "id": "p1",
-        "title": "Prasang 1: Seva Bhava",
+        "title": "Govindswami's Divine Initiation",
         "file": "252/v252_1_p1.json"
       },
       {
         "id": "p2",
-        "title": "Prasang 2: Seva Bhava",
+        "title": "Thakurji Sings Kirtan",
         "file": "252/v252_1_p2.json"
       }
     ]
