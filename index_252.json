@@ -1,0 +1,19 @@
+[
+  {
+    "id": "v252_1",
+    "name": "Govindswami",
+    "bio": "",
+    "prasangs": [
+      {
+        "id": "p1",
+        "title": "Prasang 1: Seva Bhava",
+        "file": "252/v252_1_p1.json"
+      },
+      {
+        "id": "p2",
+        "title": "Prasang 2: Seva Bhava",
+        "file": "252/v252_1_p2.json"
+      }
+    ]
+  }
+]

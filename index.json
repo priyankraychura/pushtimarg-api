@@ -1,5 +1,13 @@
 [
   {
+    "id": "1",
+    "title": "Shrinathji Aarti",
+    "artist": "Chorus",
+    "category": "Mangala",
+    "subtitle": "Shrinathji Temple",
+    "file": "mangla_aarti.json"
+  },
+  {
     "id": "2",
     "title": "Yamunajini Stuti",
     "artist": "Dr. Dipali Bhatt, Foram Maheta",
@@ -14,5 +22,37 @@
     "category": "Path",
     "subtitle": "Shrinathji Temple",
     "file": "yamunastak.json"
+  },
+  {
+    "id": "4",
+    "title": "Krushnashray",
+    "artist": "Aartis Name",
+    "category": "Stotra",
+    "subtitle": "Shrinathji Temple",
+    "file": "krushnashray.json"
+  },
+  {
+    "id": "5",
+    "title": "Vaake Ambode Shrinathji",
+    "artist": "Chorus",
+    "category": "Bhajan",
+    "subtitle": "Shrinathji Temple",
+    "file": "vaake_ambode_shrinathji.json"
+  },
+  {
+    "id": "6",
+    "title": "Jai Jai Maharani Jamuna",
+    "artist": "Aartist Name",
+    "category": "Sandhya",
+    "subtitle": "Shrinathji Temple",
+    "file": "jai_jai_mahrani_yamuna.json"
+  },
+  {
+    "id": "7",
+    "title": "Jai Jai Shri Yamuna ma",
+    "artist": "Aartist Name",
+    "category": "Sandhya",
+    "subtitle": "Shrinathji Temple",
+    "file": "jai_jai_shri_yamuna.json"
   }
 ]
