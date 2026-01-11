@@ -69,7 +69,6 @@ const generateVartaList = (sourceDir, outputFile, folderPrefix) => {
     console.log(`Processing Varta ${folderPrefix}...`);
     const files = fs.readdirSync(sourceDir);
     
-    // We use a map to group prasangs by their Vaishnav ID (e.g., "v84_1")
     const vaishnavMap = {};
 
     files.filter(file => file.endsWith('.json')).forEach(filename => {
@@ -79,26 +78,25 @@ const generateVartaList = (sourceDir, outputFile, folderPrefix) => {
             if (!content.trim()) return;
             const data = JSON.parse(content);
 
-            // Parsing Filename to get IDs
-            // Expecting format: v84_1_p1.json
-            // We split by '_' to extract parts
+            // Parsing Filename: v84_1_p1.json -> ["v84", "1", "p1"]
             const parts = filename.replace('.json', '').split('_'); 
-            // parts = ["v84", "1", "p1"]
             
             if (parts.length < 3) {
                 console.warn(`⚠️ Skipping incorrectly named file: ${filename}`);
                 return;
             }
 
-            const vaishnavId = `${parts[0]}_${parts[1]}`; // e.g., "v84_1"
-            
+            const vaishnavId = `${parts[0]}_${parts[1]}`; // "v84_1"
+            const vaishnavIndex = parseInt(parts[1], 10); // "1" -> 1 (Integer)
+
             // If this Vaishnav isn't in our map yet, init it
             if (!vaishnavMap[vaishnavId]) {
                 vaishnavMap[vaishnavId] = {
                     id: vaishnavId,
-                    // Try to find a Name in the JSON, or fallback to ID (You should add "vaishnavName" to your JSONs)
+                    index: vaishnavIndex, // <--- THIS WAS MISSING
+                    group: folderPrefix,  // <--- Good to add this too ('84' or '252')
                     name: data.vaishnavName || `Vaishnav ${parts[1]}`, 
-                    bio: data.bio || "", // Optional bio field
+                    bio: data.bio || "",
                     prasangs: []
                 };
             }
@@ -107,7 +105,7 @@ const generateVartaList = (sourceDir, outputFile, folderPrefix) => {
             vaishnavMap[vaishnavId].prasangs.push({
                 id: parts[2], // "p1"
                 title: data.title,
-                file: `${folderPrefix}/${filename}` // e.g., "84/v84_1_p1.json"
+                file: `${folderPrefix}/${filename}`
             });
 
         } catch (e) {
@@ -117,9 +115,8 @@ const generateVartaList = (sourceDir, outputFile, folderPrefix) => {
 
     // Convert Map to Array and Sort
     const finalList = Object.values(vaishnavMap)
-        .sort((a, b) => naturalSort(a.id, b.id)) // Sort Vaishnavs (v84_1, v84_2...)
+        .sort((a, b) => a.index - b.index) // Sort numerically by index
         .map(v => {
-            // Sort Prasangs inside each Vaishnav (p1, p2...)
             v.prasangs.sort((a, b) => naturalSort(a.id, b.id));
             return v;
         });
